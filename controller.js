@@ -6,7 +6,7 @@ var app = new Vue({
       "pv": 100.2,
       "sv": 157
     },
-    "relays": [
+    relays: [
       {
         "state": true,
         "prettyName": "HLT Valve",
@@ -166,7 +166,6 @@ var app = new Vue({
       tempChart.data.datasets[1].data.push(this.pid.sv);
       tempChart.update();
     }
-
   },
 
 
