@@ -6,6 +6,83 @@ var app = new Vue({
       "pv": 100.2,
       "sv": 157
     },
+    "relays": [
+      {
+        "state": true,
+        "prettyName": "HLT Valve",
+        "method": {
+          "offArg": 0,
+          "onArg": 1,
+          "name": "hlt"
+        },
+        "verbage": {
+          true: "Open",
+          false: "Closed"
+        },
+        "name": "hlt",
+        "icon": "camera"
+      },
+      {
+        "state": true,
+        "prettyName": "HLT Divert",
+        "method": {
+          "offArg": "boil",
+          "onArg": "mash",
+          "name": "hlt_to"
+        },
+        "verbage": {
+          true: "To Boil",
+          false: "To Mash"
+        },
+        "name": "hltToMash",
+        "icon": "donut_small"
+      },
+      {
+        "state": true,
+        "prettyName": "Pump",
+        "method": {
+          "offArg": 0,
+          "onArg": 1,
+          "name": "pump"
+        },
+        "verbage": {
+          true: "On",
+          false: "Off"
+        },
+        "name": "pump",
+        "icon": "camera"
+      },
+      {
+        "state": true,
+        "prettyName": "RIMS Divert",
+        "method": {
+          "offArg": "boil",
+          "onArg": "mash",
+          "name": "rims_to"
+        },
+        "verbage": {
+          true: "To Boil",
+          false: "To Mash"
+        },
+        "name": "rimsToMash",
+        "icon": "donut_small"
+      },
+      {
+        "state": false,
+        "prettyName": "RIMS Heater",
+        "method": {
+          "offArg": 0,
+          "onArg": 1,
+          "name": "pid"
+        },
+        "verbage": {
+          true: "On",
+          false: "Off"
+        },
+        "name": "rims",
+        "icon": "flash_on"
+      }
+    ],
     timer: 0,
     timerInput: null,
     timerUnit: "minutes",
@@ -70,7 +147,6 @@ var app = new Vue({
       return Math.floor(Date.now() / 1000)
     },
 
-    // This could be a computed property, but they don't update how I expect them to.
     setTimeString() {
       if (this.timeRemaining < 0) {
         this.timeString = "Done.";
