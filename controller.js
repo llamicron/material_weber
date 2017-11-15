@@ -157,6 +157,14 @@ var app = new Vue({
       minutes = Math.floor(this.timeRemaining / 60);
 
       this.timeString = minutes.toString() + ":" + formattedSeconds.toString();
+    },
+
+    updateTempChart() {
+      tempChart.data.labels.push(new Date().toLocaleTimeString());
+      tempChart.data.datasets[0].data.push(this.pid.pv);
+
+      tempChart.data.datasets[1].data.push(this.pid.sv);
+      tempChart.update();
     }
 
   },
@@ -170,8 +178,58 @@ var app = new Vue({
     pid: {
       handler() {
         this.updateTempBars();
+        this.updateTempChart();
       },
       deep: true
     }
   }
 })
+
+var ctx = document.getElementById("tempChart").getContext('2d');
+var tempChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [new Date().toLocaleTimeString()],
+    datasets: [
+      {
+        label: 'Temperature',
+        data: [app.pid.pv],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      },
+      {
+        label: "SV",
+        data: [app.pid.sv, app.pid.sv],
+      }
+    ]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: false
+        }
+      }]
+    },
+    elements: {
+      line: {
+        tension: 0, // disables bezier curves
+      }
+    }
+  }
+});
