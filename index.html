@@ -24,25 +24,16 @@
 
   <link rel="shortcut icon" href="images/favicon.png">
 
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="controller">
     <!-- Header -->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
       <div class="mdl-layout__header-row">
@@ -100,12 +91,12 @@
       <div class="mdl-grid demo-content">
         <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
           <div id="pv-indicator">
-            <h2 class="mdl-card__title-text">PV Temp : 100˚F</h2>
+            <h2 class="mdl-card__title-text">PV Temp : {{ pid.pv }} ˚ F</h2>
             <div id="pvBar" class="mdl-progress mdl-js-progress"></div>
           </div>
           <div id="sv-indicator">
             <div id="svBar" class="mdl-progress mdl-js-progress"></div>
-            <h2 class="mdl-card__title-text">SV Temp : 152 ˚ F</h2>
+            <h2 class="mdl-card__title-text">SV Temp : {{ pid.sv }} ˚ F</h2>
           </div>
         </div>
         <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
@@ -174,7 +165,9 @@
       </div>
     </main>
   </div>
+
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="vue.js"></script>
   <script src="controller.js"></script>
 </body>
 
