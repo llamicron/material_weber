@@ -6,6 +6,15 @@ html, body {
   font-size: 50px;
 }
 
+#graph-card {
+  height: 0%;
+}
+
+#procedures-table {
+  width: 100%;
+  margin-bottom: 3em;
+}
+
 #controller-title {
   text-align: top;
   opacity: 1

@@ -192,7 +192,7 @@ var tempChart = new Chart(ctx, {
     labels: [new Date().toLocaleTimeString()],
     datasets: [
       {
-        label: 'Temperature',
+        label: 'Actual Temperature ( ˚ F)',
         data: [app.pid.pv],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -213,23 +213,9 @@ var tempChart = new Chart(ctx, {
         borderWidth: 1
       },
       {
-        label: "SV",
+        label: "Target Temperature",
         data: [app.pid.sv, app.pid.sv],
       }
     ]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: false
-        }
-      }]
-    },
-    elements: {
-      line: {
-        tension: 0, // disables bezier curves
-      }
-    }
   }
 });

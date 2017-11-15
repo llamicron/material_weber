@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Controller</title>
+  <title>Controller Dashboard</title>
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -40,7 +40,7 @@
     <!-- Header -->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Controller</span>
+        <span class="mdl-layout-title">Controller Dashboard</span>
         <div class="mdl-layout-spacer"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
           <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -94,18 +94,45 @@
       <div class="mdl-grid demo-content">
         <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
           <div id="pv-indicator">
-            <h2 class="mdl-card__title-text">PV Temp : {{ pid.pv }} ˚ F</h2>
+            <h2 class="mdl-card__title-text">Actual Temperature : {{ pid.pv }} ˚ F</h2>
             <div id="pvBar" class="mdl-progress mdl-js-progress"></div>
           </div>
           <div id="sv-indicator">
             <div id="svBar" class="mdl-progress mdl-js-progress"></div>
-            <h2 class="mdl-card__title-text">SV Temp : {{ pid.sv }} ˚ F</h2>
+            <h2 class="mdl-card__title-text">Target Temperature : {{ pid.sv }} ˚ F</h2>
           </div>
         </div>
-        <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
-          <!-- Experimental -->
+        <div id="graph-card-nope" class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col mdl-cell--hide-phone">
+          <!-- Procedures Table -->
+          <table id="procedures-table" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Next Step</th>
+                <th>Lorem</th>
+                <th>Ipsum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                <td>25</td>
+                <td>$2.90</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                <td>50</td>
+                <td>$1.25</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                <td>10</td>
+                <td>$2.35</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+          <!-- Temp Chart -->
           <canvas id="tempChart" width="650" height="400"></canvas>
-          <!-- /Experimental -->
         </div>
         <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
           <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
@@ -127,7 +154,7 @@
                         {{ relay.verbage[relay.state] }}
                       </span>
                     </span>
-                    </span>
+                  </span>
                 </li>
               </ul>
             </div>
