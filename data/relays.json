@@ -1,0 +1,59 @@
+{
+  "relays": [
+    {
+      "state": true, 
+      "prettyName": "HLT Valve", 
+      "method": {
+        "offArg": 0, 
+        "onArg": 1, 
+        "name": "hlt"
+      }, 
+      "name": "hlt", 
+      "icon": "fa-superpowers"
+    }, 
+    {
+      "state": true, 
+      "prettyName": "HLT To Boil", 
+      "method": {
+        "offArg": "boil", 
+        "onArg": "mash", 
+        "name": "hlt_to"
+      }, 
+      "name": "hltToMash", 
+      "icon": "fa-superpowers"
+    }, 
+    {
+      "state": true, 
+      "prettyName": "Pump", 
+      "method": {
+        "offArg": 0, 
+        "onArg": 1, 
+        "name": "pump"
+      }, 
+      "name": "pump", 
+      "icon": "fa-superpowers"
+    }, 
+    {
+      "state": true, 
+      "prettyName": "RIMS To Boil", 
+      "method": {
+        "offArg": "boil", 
+        "onArg": "mash", 
+        "name": "rims_to"
+      }, 
+      "name": "rimsToMash", 
+      "icon": "fa-superpowers"
+    }, 
+    {
+      "state": false, 
+      "prettyName": "RIMS Heater", 
+      "method": {
+        "offArg": 0, 
+        "onArg": 1, 
+        "name": "pid"
+      }, 
+      "name": "rims", 
+      "icon": "fa-thermometer-quarter"
+    }
+  ]
+}
