@@ -5,7 +5,9 @@ var app = new Vue({
       "pid_running": true,
       "pv": 100.2,
       "sv": 157
-    }
+    },
+    timer: 0,
+    timerString: "Done"
   },
 
   methods: {
@@ -34,6 +36,12 @@ var app = new Vue({
     }
   },
 
+  computed: {
+    timeRemaining: function () {
+      return this.timerString;
+    }
+  },
+
   mounted() {
     this.setTempBars();
   },
@@ -44,6 +52,14 @@ var app = new Vue({
         this.updateTempBars();
       },
       deep: true
+    },
+    timer: function () {
+
+      seconds = this.timer % 60;
+      var formattedSeconds = ("0" + seconds).slice(-2);
+      minutes = Math.floor(this.timer / 60);
+
+      this.timerString = minutes.toString() + ":" + formattedSeconds.toString();
     }
   }
 })

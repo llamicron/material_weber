@@ -24,6 +24,10 @@ html, body {
   color: lightgrey;
 }
 
+#timer-title-column, #time-remaining-wrapper {
+  font-size: 35px;
+}
+
 .demo-avatar {
   width: 48px;
   height: 48px;

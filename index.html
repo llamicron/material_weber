@@ -24,7 +24,8 @@
 
   <link rel="shortcut icon" href="images/favicon.png">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -119,13 +120,17 @@
             </div>
           </div>
           <div class="demo-separator mdl-cell--1-col"></div>
+          <!-- Timer -->
           <div class="demo-options mdl-card mdl-color--blue-grey-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
             <div class="mdl-card__supporting-text mdl-color-text--light-blue-50">
-              <h3>
-                <strong>
-                  Timer
-                </strong>
-              </h3>
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet" id="timer-title-column">
+                  <h3>Timer</h3>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet" id="time-remaining-wrapper">
+                  <h3>{{ timeRemaining }}</h3>
+                </div>
+              </div>
               <ul>
                 <li>
                   <!-- Timer Length -->
