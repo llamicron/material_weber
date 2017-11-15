@@ -62,6 +62,10 @@ var app = new Vue({
       }, 1000);
     },
 
+    cancelTimer() {
+      this.endTime = this.now() - 2;
+    },
+
     now() {
       return Math.floor(Date.now() / 1000)
     },
